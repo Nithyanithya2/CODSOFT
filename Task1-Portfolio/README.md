@@ -1,1 +1,1 @@
-
+This project is a Personal Portfolio website created as part of the codsoft web development Internship program.The portfolio showcases my skills,projects,and background in clean,modern,and responsive level.
