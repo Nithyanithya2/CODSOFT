@@ -1,0 +1,165 @@
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #fff;
+}
+
+/* Navbar */
+header {
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff4d4d;
+}
+
+.logo span {
+    color: black;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #222;
+    font-size: 18px;
+}
+
+.btn {
+    background: #ff4d4d;
+    border: none;
+    padding: 10px 18px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #d62b2b;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 50px;
+}
+
+.hero img {
+    width: 420px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.hero span {
+    color: #ff4d4d;
+}
+
+.hero p {
+    margin: 10px 0 20px;
+    font-size: 20px;
+}
+
+.big {
+    padding: 14px 25px;
+    font-size: 18px;
+}
+
+/* Features */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background: #ffecec;
+}
+
+.features .box {
+    width: 260px;
+    text-align: center;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.features .box:hover {
+    transform: scale(1.05);
+    background: #fff;
+    border-radius: 10px;
+}
+
+/* Menu */
+.menu {
+    text-align: center;
+    padding: 60px 50px;
+}
+
+.menu h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #ff4d4d;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.item {
+    width: 240px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item img {
+    width: 100%;
+    height: 160px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.item h4 {
+    margin: 10px 0 5px;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media(max-width: 850px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+}
