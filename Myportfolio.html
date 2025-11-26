@@ -1,0 +1,281 @@
+<!--
+  Portfolio - Nithya V
+  Single-file HTML + CSS portfolio built for CodSoft Task-1
+
+  Notes:
+  - Resume file (PDF or image) is linked to the local path provided by you:
+    /mnt/data/Screenshot 2025-11-22 101612.png
+    If you upload a PDF later, replace the href value in the Resume button.
+  - Profile image currently uses the same file. Replace src with your profile photo path if you upload one.
+  - Customize project descriptions, skills, or colors directly in the HTML below.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nithya V — Portfolio</title>
+  <style>
+    :root{
+      --primary:#0b5ed7; /* blue */
+      --accent:#083e8a;
+      --bg:#f7fbff;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --radius:14px;
+      --max-width:1100px;
+      --glass: rgba(11,94,215,0.06);
+      --shadow: 0 6px 20px rgba(11,94,215,0.08);
+      --nav-height:72px;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial; background:var(--bg); color:#0b1720}
+    a{color:var(--primary);text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:30px}
+
+    /* NAV */
+    header{position:sticky;top:0;background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.85));backdrop-filter: blur(4px);z-index:30;border-bottom:1px solid rgba(11,94,215,0.06)}
+    .nav-inner{height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;box-shadow:var(--shadow)}
+    .brand h1{font-size:18px;margin:0;letter-spacing:1px}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{padding:8px 12px;border-radius:8px;transition:all .22s ease;font-weight:600;color:var(--accent)}
+    nav a:hover{background:var(--glass);transform:translateY(-3px);box-shadow:var(--shadow)}
+    .cta{padding:8px 14px;background:var(--primary);color:#fff;border-radius:10px;font-weight:700}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns: 1fr 360px;gap:30px;align-items:center;padding:48px 0}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,1),#ffffff);border-radius:var(--radius);padding:36px;box-shadow:0 10px 30px rgba(11,94,215,0.06);border:1px solid rgba(11,94,215,0.06)}
+    .hero h2{margin:0;font-size:28px;color:var(--accent);letter-spacing:1px}
+    .hero p{color:var(--muted);margin-top:10px;line-height:1.6}
+
+    .profile{display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--card),#fbfdff);box-shadow:var(--shadow)}
+    .profile img{width:220px;height:220px;object-fit:cover;border-radius:12px;border:6px solid rgba(11,94,215,0.06)}
+    .tag{display:inline-block;background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:700;color:var(--accent);}
+
+    /* SECTIONS */
+    section{margin-top:34px}
+    .section-title{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+    .section-title h3{margin:0;color:var(--accent)}
+    .divider{height:2px;background:var(--glass);flex:1;border-radius:4px}
+
+    /* SKILLS + PROJECTS */
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:24px}
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:transparent;border:1px solid rgba(11,94,215,0.08);padding:10px 12px;border-radius:10px;font-weight:600;color:var(--accent)}
+
+    .projects{display:grid;gap:14px}
+    .project{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(11,94,215,0.05);box-shadow:0 6px 18px rgba(9,30,66,0.04)}
+    .project h4{margin:0 0 8px 0;color:var(--accent)}
+    .project p{margin:0;color:var(--muted)}
+
+    .resume-card{background:linear-gradient(180deg,#fff,var(--glass));padding:18px;border-radius:12px;text-align:center;border:1px solid rgba(11,94,215,0.06)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;font-weight:700}
+    .btn-outline{border:2px solid var(--primary);color:var(--primary);background:transparent}
+    .btn-primary{background:var(--primary);color:#fff}
+
+    /* CONTACT */
+    .contact .info{display:flex;flex-direction:column;gap:8px}
+    .contact a{font-weight:700}
+
+    footer{margin-top:48px;padding:24px 0;color:var(--muted);font-size:14px;text-align:center}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr;}
+      .profile img{width:180px;height:180px}
+      nav ul{display:none}
+    }
+
+    @media (max-width:480px){
+      .hero-card{padding:20px}
+      .container{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">NV</div>
+        <div>
+          <h1>NITHYA V</h1>
+          <div style="font-size:12px;color:var(--muted);">Web Developer | Cybersecurity Aspirant</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact" class="cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+          <div>
+            <h2>Hello — I'm <span style="color:var(--primary)">Nithya V</span></h2>
+            <div class="tag">Web Developer | Cybersecurity Aspirant</div>
+          </div>
+          <div style="text-align:right;color:var(--muted);font-weight:700">India</div>
+        </div>
+
+        <p style="margin-top:18px">Motivated and detail-oriented web developer with a strong foundation in HTML, CSS, and JavaScript. Passionate about building responsive, user-friendly websites. Eager to grow professionally and developing skills in ethical hacking and network security.</p>
+
+        <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-outline" href="#contact">Contact Me</a>
+        </div>
+
+        <div style="margin-top:22px;color:var(--muted);font-size:14px">
+          <strong>Education:</strong> B.E CSE — Sri Venkateswara College of Engineering (CGPA: 8.2)
+        </div>
+      </div>
+
+      <aside class="profile">
+        <!-- Using provided resume image as temporary profile. Replace src if you upload a photo. -->
+        <img src="myprofile.jpg" alt="Profile">
+        <div style="text-align:center">
+          <div style="font-weight:800">NITHYA V</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:6px">2023cs664@gmail.com • 9596678888</div>
+          <div style="margin-top:10px"><a href="https://www.linkedin.com/in/nithya-velu-51aaaa328" target="_blank">LinkedIn Profile</a></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- ABOUT --
+    <section id="about">
+      <div class="section-title">
+        <h3>About</h3>
+        <div class="divider"></div>
+      </div>
+      <div style="background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(11,94,215,0.04);box-shadow:0 6px 18px rgba(9,30,66,0.02)">
+        <p style="margin:0;color:var(--muted);line-height:1.7">Motivated and detail-oriented web developer with a strong foundation in HTML, CSS, and JavaScript. Seeking to contribute technical skills and creativity to a dynamic team while continuing to grow. Also pursuing skills in cybersecurity — especially ethical hacking, network security, and incident response to protect organizational data and systems.</p>
+      </div>
+    </section>
+
+    <!-- SKILLS + PROJECTS -->
+    <div class="grid">
+      <div>
+        <section id="skills">
+          <div class="section-title">
+            <h3>Skills</h3>
+            <div class="divider"></div>
+          </div>
+
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Responsive Design</span>
+            <span class="skill">Firebase (Basic)</span>
+            <span class="skill">Android App Dev</span>
+            <span class="skill">Git</span>
+          </div>
+
+          <div style="margin-top:18px">
+            <h4 style="margin:0 0 8px 0;color:var(--accent)">Soft Skills</h4>
+            <p style="margin:0;color:var(--muted)">Teamwork • Problem Solving • Critical Thinking</p>
+          </div>
+        </section>
+
+        <section id="projects" style="margin-top:28px">
+          <div class="section-title">
+            <h3>Projects</h3>
+            <div class="divider"></div>
+          </div>
+
+          <div class="projects">
+            <div class="project">
+              <h4>Fashion Sale Website</h4>
+              <p>Designed and built a responsive website for online fashion sales using HTML and CSS. Implemented product sections, offers, and navigation menus for easy browsing and a visually appealing layout.</p>
+            </div>
+
+            <div class="project">
+              <h4>Food for Hunger (Ongoing)</h4>
+              <p>Developing an Android app using Firebase to connect restaurants with leftover food to nearby needy people through volunteers. Acts as a bridge between food donors and hungry individuals to reduce food waste.</p>
+            </div>
+
+            <div class="project">
+              <h4>Other Mini Projects</h4>
+              <p>Calculator App, Simple To-Do, and small UI experiments (HTML/CSS/JS) to practice interactivity and layout techniques.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <section id="resume">
+          <div class="section-title">
+            <h3>Resume</h3>
+            <div class="divider"></div>
+          </div>
+
+          <div class="resume-card">
+            <p style="color:var(--muted);margin:0 0 12px 0">Download my resume (saved copy)</p>
+            <!-- Developer instruction: using the uploaded file path as the resume link -->
+            <a class="btn btn-primary" href="/mnt/data/Screenshot 2025-11-22 101612.png" download>Download Resume</a>
+
+            <div style="margin-top:12px;color:var(--muted);font-size:13px">Certifications: Simplilearn — Fundamentals of HTML, CSS & JavaScript</div>
+          </div>
+
+          <div style="margin-top:18px" class="section-title">
+            <h3>Workshops</h3>
+            <div class="divider"></div>
+          </div>
+          <div style="background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(11,94,215,0.04)">
+            <p style="margin:0 0 6px 0;color:var(--muted)"><strong>Mastering RAG (CIT)</strong> — Implementing retrieval pipelines & prompt optimization for LLMs.</p>
+            <p style="margin:0;color:var(--muted)"><strong>Drone Technology (EWB-SVCE)</strong> — UAV structure, aerodynamics & real-world applications.</p>
+          </div>
+        </section>
+
+        <section id="contact" style="margin-top:22px">
+          <div class="section-title">
+            <h3>Contact</h3>
+            <div class="divider"></div>
+          </div>
+
+          <div class="contact">
+            <div class="info">
+              <div><strong>Email:</strong> <a href="mailto:2023c664@gmail.com">2023cs664@gmail.com</a></div>
+              <div><strong>Phone:</strong> <a href="tel:+919597545668">+919597545668</a></div>
+              <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nithya-velu-51aaaa328" target="_blank">linkedin.com/in/nithya-velu-51aaaa328</a></div>
+            </div>
+
+            <div style="margin-top:12px">
+              <form onsubmit="alert('This form is demo-only. Use mailto link or configure a backend.');return false;">
+                <input type="text" name="name" placeholder="Your name" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(11,94,215,0.06);margin-bottom:8px">
+                <input type="email" name="email" placeholder="Your email" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(11,94,215,0.06);margin-bottom:8px">
+                <textarea name="message" placeholder="Message" rows="4" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(11,94,215,0.06);"></textarea>
+                <div style="margin-top:8px;text-align:right"><button class="btn btn-outline">Send</button></div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> NITHYA V — Built with HTML & CSS • For CodSoft Task-1
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});}))
+  </script>
+</body>
+</html>
